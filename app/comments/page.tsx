@@ -19,7 +19,7 @@ export default async function CommentPage() {
                         Home
                     </Link>
                 </Button>
-
+            
                 <h1 className='text-3xl font-bold mb-2'>
                     Comments
                 </h1>
