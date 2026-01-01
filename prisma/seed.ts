@@ -3,10 +3,10 @@ import prisma from "@/lib/db"
 async function main() {
     const blogPost = [{
         // id: 1,
-        slug: "learn-nextjs-basics",
-        title: "learn Next.js Basics",
-        content: `Learn Next.js Basics
-      Next.js is a popular React framework that helps you build fast and SEO-friendly websites.
+        slug: "learn-reactjs-basics",
+        title: "learn React.js Basics",
+        content: `Learn React.js Complex things
+Next.js is a popular React framework that helps you build fast and SEO-friendly websites.
 
       ## Why use Next.js?
       - Built-in routing system
@@ -21,7 +21,7 @@ async function main() {
         await prisma.blogPost.create({
             data: post,
         })
-    } 
+    }
 
 }
 
