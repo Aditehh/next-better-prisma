@@ -21,7 +21,7 @@ async function main() {
         await prisma.blogPost.create({
             data: post,
         })
-    }
+    } 
 
 }
 
