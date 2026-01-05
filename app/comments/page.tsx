@@ -23,6 +23,7 @@ export default async function CommentPage() {
                 <h1 className='text-3xl font-bold mb-2'>
                     Comments
                 </h1>
+              
                 <p className='text-muted-foreground mb-8'>
                     Sign in with GitHub to leave a comment or message
                 </p>
