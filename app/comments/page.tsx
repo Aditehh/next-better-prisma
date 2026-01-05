@@ -5,9 +5,10 @@ import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import AuthButton from '@/components/ui/auth-button'
 import CommentForm from '@/components/ui/comment-form'
+import CommentList from '@/components/ui/comment-list'
 
 export default async function CommentPage() {
-    const post = await prisma.comment.findMany({
+    const comments = await prisma.comment.findMany({
         include: { user: true },
         orderBy: { createdAt: "desc" }
     })
@@ -20,11 +21,11 @@ export default async function CommentPage() {
                         Home
                     </Link>
                 </Button>
-            
+
                 <h1 className='text-3xl font-bold mb-2'>
                     Comments
                 </h1>
-              
+
                 <p className='text-muted-foreground mb-8'>
                     Sign in with GitHub to leave a comment or message
                 </p>
@@ -35,6 +36,13 @@ export default async function CommentPage() {
             </div>
 
             <CommentForm />
+
+            <div className='mt-12'>
+                <h2 className='text-xl font-semibold mb-4'>
+                    All Comments ({comments.length})
+                </h2>
+                <CommentList comments={comments} />
+            </div>
         </main>
     )
 }

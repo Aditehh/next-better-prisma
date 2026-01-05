@@ -4,7 +4,7 @@ import { Textarea } from './textarea'
 import { useState } from 'react'
 import { Button } from './button'
 import { Loader2, Send } from 'lucide-react'
-import { error } from 'console'
+import { error } from 'node:console'
 
 export default function CommentForm() {
     const [content, setcontent] = useState("")
@@ -31,7 +31,7 @@ export default function CommentForm() {
             }
         }
         catch {
-            console.log("Failed to submit comment", error)
+            console.log("Failed to submit comment", )
         }
         finally {
             setIsSubmitting(false)
