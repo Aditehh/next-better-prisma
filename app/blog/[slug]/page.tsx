@@ -5,6 +5,8 @@ import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import MarkdownRenderer from '@/components/ui/markdown-renderer';
+import CommentForm from '@/components/ui/comment-form';
+import CommentList from '@/components/ui/comment-list';
 
 export default async function BlogPostPage({
     params,
@@ -16,6 +18,11 @@ export default async function BlogPostPage({
     const post = await prisma.blogPost.findUnique({
         where: { slug }
     });
+
+    const comments = await prisma.comment.findMany({
+        include: { user: true },
+        orderBy: { createdAt: "desc" }
+    })
 
     if (!post) {
         notFound();
@@ -44,6 +51,8 @@ export default async function BlogPostPage({
                     <MarkdownRenderer content={post.content} />
                 </div>
 
+                <CommentForm />
+                <CommentList comments={comments} />
 
             </article>
         </main>

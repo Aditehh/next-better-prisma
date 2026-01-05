@@ -39,7 +39,7 @@ export default function CommentForm() {
     }
 
     return (
-        <form onSubmit={handlesubmit} className='flex flex-col gap-3' >
+        <form onSubmit={handlesubmit} className='flex flex-col gap-3 mb-10' >
             <Textarea
                 value={content}
                 onChange={(e) => setcontent(e.target.value)}

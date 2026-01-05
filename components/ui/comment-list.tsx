@@ -5,7 +5,7 @@ import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
 import { AvatarFallback } from './avatar'
 
 export default function CommentList({ comments }: { comments: Comment[] }) {
-    if (comments.length === 0) {
+    if (!comments) {
         return (
             <p className='text-muted-foreground text-center py-8'>
                 No comments yet. Be the first to leave one!
@@ -13,9 +13,9 @@ export default function CommentList({ comments }: { comments: Comment[] }) {
         )
     }
     return (
-        <div className='flex flex-col gap-4'>
+        <div className='mt-10px flex flex-col gap-4'>
             {comments.map((comment) => (
-                <Card key={comment.id}>
+                <Card key={comment.slug}>
                     <CardContent>
                         <div className='flex items-center gap2 mb-2'>
 

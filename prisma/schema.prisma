@@ -88,8 +88,9 @@ model BlogPost {
 
 model Comment {
   id        String   @id @default(cuid())
+  slug      String   @unique
   content   String
   createdAt DateTime @default(now())
   userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade )
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
