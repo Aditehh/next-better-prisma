@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import AuthButton from '@/components/ui/auth-button'
+import CommentForm from '@/components/ui/comment-form'
 
 export default async function CommentPage() {
     const post = await prisma.comment.findMany({
@@ -32,6 +33,8 @@ export default async function CommentPage() {
                     <AuthButton />
                 </div>
             </div>
+
+            <CommentForm />
         </main>
     )
 }
