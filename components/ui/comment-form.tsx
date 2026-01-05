@@ -4,6 +4,7 @@ import { Textarea } from './textarea'
 import { useState } from 'react'
 import { Button } from './button'
 import { Loader2, Send } from 'lucide-react'
+import { error } from 'console'
 
 export default function CommentForm() {
     const [content, setcontent] = useState("")
@@ -14,6 +15,27 @@ export default function CommentForm() {
     const handlesubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         if (!content.trim()) return;
+
+        setIsSubmitting(true)
+
+        try {
+            const res = await fetch("/api/comments", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ content })
+            })
+
+            if (res.ok) {
+                setcontent("");
+                router.refresh();
+            }
+        }
+        catch {
+            console.log("Failed to submit comment", error)
+        }
+        finally {
+            setIsSubmitting(false)
+        }
     }
 
     return (
