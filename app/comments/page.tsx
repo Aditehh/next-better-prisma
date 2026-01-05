@@ -35,14 +35,14 @@ export default async function CommentPage() {
                 </div>
             </div>
 
-            <CommentForm />
+            {/* <CommentForm postId={post.id} />
 
             <div className='mt-12'>
                 <h2 className='text-xl font-semibold mb-4'>
                     All Comments ({comments.length})
                 </h2>
                 <CommentList comments={comments} />
-            </div>
+            </div> */}
         </main>
     )
 }

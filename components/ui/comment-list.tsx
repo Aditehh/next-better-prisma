@@ -15,9 +15,9 @@ export default function CommentList({ comments }: { comments: Comment[] }) {
     return (
         <div className='mt-10px flex flex-col gap-4'>
             {comments.map((comment) => (
-                <Card key={comment.slug}>
+                <Card key={comment.id}>
                     <CardContent>
-                        <div className='flex items-center gap2 mb-2'>
+                        <div className='flex items-center gap-22 mb-2'>
 
                             <Avatar className='w-6 h-6'>
                                 <AvatarImage className='w-4 h-4'

@@ -6,7 +6,11 @@ import { Button } from './button'
 import { Loader2, Send } from 'lucide-react'
 import { error } from 'node:console'
 
-export default function CommentForm() {
+interface CommentFormProps {
+    postId: string
+}
+
+export default function CommentForm({postId} : CommentFormProps) {
     const [content, setcontent] = useState("")
     const [isSubmitting, setIsSubmitting] = useState(false)
     const router = useRouter();
